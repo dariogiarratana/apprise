@@ -561,6 +561,9 @@ class NotifyMSTeams(NotifyBase):
             else NotifyMSTeams.unquote(entries.pop(0))
         results['token_c'] = None if not entries \
             else NotifyMSTeams.unquote(entries.pop(0))
+        
+        if len(entries):
+            results['token_c'] += f"/{NotifyMSTeams.unquote(entries.pop(0))}"
 
         # Get Image
         results['include_image'] = \
